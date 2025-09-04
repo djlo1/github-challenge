@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Challenge - Test Pratique</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Arial;margin:0;background:#0f1724;color:#e6eef8}
+    .wrap{max-width:940px;margin:40px auto;padding:28px;background:#071028;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    h1{margin-top:0;color:#fff}
+    .card{background:#081226;padding:18px;border-radius:10px;margin-top:14px}
+    .hint{font-size:0.95rem;color:#9fb7d9}
+    .small{font-size:0.9rem;color:#c9e0ff}
+    .important{background:#1b3a66;padding:10px;border-radius:8px;margin-top:12px}
+    footer{margin-top:18px;font-size:0.85rem;color:#7fa0d1}
+    .muted{color:#6f8bb0;font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Portail du Test Pratique — Programme de Stage</h1>
+
+    <div class="card">
+      <h3>Règles & objectifs</h3>
+      <p class="hint">
+        Bienvenue. Ce test a deux phases :
+        <ol>
+          <li>Accès collaboratif aux documents chiffrés (phase commune)</li>
+          <li>Travail individuel sur vos épreuves (après décryptage)</li>
+        </ol>
+      </p>
+
+      <div class="important">
+        <strong>Important :</strong>
+        <p class="small">Les fichiers sont chiffrés avec GPG (AES-256). Vous devez d’abord <em>trouver</em> et <em>récupérer</em> les fichiers chiffrés, puis les déchiffrer localement pour commencer vos tâches.</p>
+      </div>
+
+      <h4>Étapes à suivre</h4>
+      <ol class="hint">
+        <li>Lisez entièrement cette page.</li>
+        <li>Trouvez l’emplacement du premier fichier chiffré (indice : inspectez le code source de la page).</li>
+        <li>Téléchargez le fichier chiffré correspondant (ai.pdf.gpg).</li>
+        <li>Pour le second fichier, un indice est caché dans une image fournie sur ce site. Analysez ses métadonnées.</li>
+        <li>Une fois les mots de passe trouvés, déchiffrez localement :
+          <pre class="small">gpg --output ai.pdf --decrypt ai.pdf.gpg
+gpg --output si.pdf --decrypt si.pdf.gpg</pre>
+        </li>
+        <li>Ouvrez chaque PDF et commencez vos tâches.</li>
+      </ol>
+
+      <h4>Règles de fair-play</h4>
+      <p class="muted">Vous pouvez coopérer pour la phase d’accès mais chaque candidat travaille seul pour sa partie individuelle. Toute triche ou tentative de contournement non autorisée annule la participation.</p>
+    </div>
+
+    <div class="card">
+      <h3>Indices & Aides</h3>
+      <p class="hint">Indice principal : si vous ne voyez pas immédiatement les liens, pensez à <strong>Voir le code source</strong> (Ctrl+U) et cherchez les commentaires HTML. Un lien relatif vers le fichier chiffré y est glissé.</p>
+      <p class="small">Indice secondaire (image) : téléchargez l'image visible sur ce site et vérifiez ses métadonnées (EXIF).</p>
+    </div>
+
+    <footer>
+      Page déployée pour le test. En cas de problème technique, contactez l'organisateur.
+    </footer>
+  </div>
+
+  <!-- INDICE CACHE: Le premier fichier chiffré est disponible en relatif sous:
+       /challenge/locked/ai.pdf.gpg -->
+</body>
+</html>
