@@ -3,67 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Challenge - Test Pratique</title>
+  <title>Portail du Test Pratique — Programme de Stage Academique L3 WONDER TECK 2025</title>
   <style>
-    body{font-family:Inter,system-ui,Segoe UI,Arial;margin:0;background:#0f1724;color:#e6eef8}
-    .wrap{max-width:940px;margin:40px auto;padding:28px;background:#071028;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
-    h1{margin-top:0;color:#fff}
-    .card{background:#081226;padding:18px;border-radius:10px;margin-top:14px}
-    .hint{font-size:0.95rem;color:#9fb7d9}
-    .small{font-size:0.9rem;color:#c9e0ff}
-    .important{background:#1b3a66;padding:10px;border-radius:8px;margin-top:12px}
-    footer{margin-top:18px;font-size:0.85rem;color:#7fa0d1}
-    .muted{color:#6f8bb0;font-size:0.9rem}
+    body {
+      font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
+      margin: 0;
+      background: radial-gradient(circle at top, #0f1724, #020612);
+      color: #e6eef8;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 28px;
+      background: rgba(7, 16, 40, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 180, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      color: #00cfff;
+      font-size: 1.9rem;
+      text-shadow: 0 0 8px #008cff;
+      letter-spacing: 1px;
+    }
+    h3, h4 { color: #e6eef8; margin-bottom: 8px; }
+    .card {
+      background: #0a1830;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 18px;
+      box-shadow: 0 0 15px rgba(0,180,255,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(0,180,255,0.3);
+    }
+    .hint { font-size: 0.95rem; color: #9fb7d9; }
+    .small { font-size: 0.9rem; color: #c9e0ff; background: #081226; padding: 8px; border-radius: 8px; display: inline-block; }
+    .important {
+      background: linear-gradient(135deg, #0f325e, #132a46);
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 14px;
+      border: 1px solid rgba(0,180,255,0.4);
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #7fa0d1;
+      text-align: center;
+    }
+    .muted { color: #6f8bb0; font-size: 0.9rem; }
+    .glow {
+      color: #00cfff;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00cfff, 0 0 10px #00a2d4;
+    }
+    /* 🎯 Indice camouflé */
+    .secret::after {
+      content: "challenge/locked/ai.pdf.gpg";
+      font-size: 0;
+      color: transparent;
+      background: none;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Portail du Test Pratique — Programme de Stage</h1>
+    <h1>Portail du Test Pratique — Programme de Stage Academique L3 WONDER TECK 2025</h1>
 
     <div class="card">
-      <h3>Règles & objectifs</h3>
+      <h3>Présentation</h3>
       <p class="hint">
-        Bienvenue. Ce test a deux phases :
-        <ol>
-          <li>Accès collaboratif aux documents chiffrés (phase commune)</li>
-          <li>Travail individuel sur vos épreuves (après décryptage)</li>
-        </ol>
+        Bienvenue sur la plateforme sécurisée du test pratique. <br>
+        Vous êtes deux candidates sélectionnées pour ce challenge :
       </p>
+      <ul class="hint">
+        <li><span class="glow">Océane Kafui BALLEY</span> — Spécialité <strong>Intelligence Artificielle & Data Science</strong> (<code>ai.pdf</code>)</li>
+        <li><span class="glow">Melkiade Hounsou</span> — Spécialité <strong>Cybersécurité</strong> (<code>si.pdf</code>)</li>
+      </ul>
 
       <div class="important">
-        <strong>Important :</strong>
-        <p class="small">Les fichiers sont chiffrés avec GPG (AES-256). Vous devez d’abord <em>trouver</em> et <em>récupérer</em> les fichiers chiffrés, puis les déchiffrer localement pour commencer vos tâches.</p>
+        <p class="small">
+          Les fichiers attribués sont <em>chiffrés</em>. Avant de commencer votre mission personnelle, vous devez collaborer pour les récupérer et les déchiffrer.
+        </p>
       </div>
+    </div>
 
-      <h4>Étapes à suivre</h4>
+    <div class="card">
+      <h3>Étapes du test</h3>
       <ol class="hint">
-        <li>Lisez entièrement cette page.</li>
-        <li>Trouvez l’emplacement du premier fichier chiffré (indice : inspectez le code source de la page).</li>
-        <li>Téléchargez le fichier chiffré correspondant (ai.pdf.gpg).</li>
-        <li>Pour le second fichier, un indice est caché dans une image fournie sur ce site. Analysez ses métadonnées.</li>
-        <li>Une fois les mots de passe trouvés, déchiffrez localement :
+        <li>Explorez cette page et son code source attentivement.</li>
+        <li>Trouvez le premier fichier chiffré (<code>ai.pdf.gpg</code>) à l’aide d’un indice discret.</li>
+        <li>Pour le second fichier (<code>si.pdf.gpg</code>), analysez l’image fournie dans la page : ses métadonnées cachent une piste.</li>
+        <li>Une fois vos fichiers téléchargés, utilisez <code>gpg</code> pour les déchiffrer :
           <pre class="small">gpg --output ai.pdf --decrypt ai.pdf.gpg
 gpg --output si.pdf --decrypt si.pdf.gpg</pre>
         </li>
-        <li>Ouvrez chaque PDF et commencez vos tâches.</li>
+        <li>Chaque candidate ouvre son PDF et exécute les tâches de sa spécialité.</li>
       </ol>
-
-      <h4>Règles de fair-play</h4>
-      <p class="muted">Vous pouvez coopérer pour la phase d’accès mais chaque candidat travaille seul pour sa partie individuelle. Toute triche ou tentative de contournement non autorisée annule la participation.</p>
     </div>
 
     <div class="card">
-      <h3>Indices & Aides</h3>
-      <p class="hint">Indice principal : si vous ne voyez pas immédiatement les liens, pensez à <strong>Voir le code source</strong> (Ctrl+U) et cherchez les commentaires HTML. Un lien relatif vers le fichier chiffré y est glissé.</p>
-      <p class="small">Indice secondaire (image) : téléchargez l'image visible sur ce site et vérifiez ses métadonnées (EXIF).</p>
+      <h3>Règles</h3>
+      <p class="muted">
+        - Vous coopérez uniquement pour la phase de récupération/déchiffrement.<br>
+        - Une fois vos fichiers accessibles, <strong>travail individuel obligatoire</strong>.<br>
+        - Toute triche ou contournement non autorisé entraîne l’élimination.
+      </p>
     </div>
 
     <footer>
-      Page déployée pour le test. En cas de problème technique, contactez l'organisateur.
+      Plateforme générée pour le test — Wonder Teck © 2025
     </footer>
   </div>
 
-  <!-- INDICE CACHE: Le premier fichier chiffré est disponible en relatif sous:
-       /challenge/locked/ai.pdf.gpg -->
+  <!-- La classe "secret" ci-dessous contient discrètement un indice -->
+  <div class="secret"></div>
 </body>
 </html>
