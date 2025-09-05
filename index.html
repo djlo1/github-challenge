@@ -158,14 +158,47 @@
     25%,75%{opacity:0}
 }
 
+#chronoPanel {
+    position: fixed;
+    top: 20px;
+    right: 30px; /* Positionné à droite */
+    background: #0a1830cc;
+    color: #00ff4c;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #00ff4c;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px rgba(0,180,255,0.3);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#chronoPanel button {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #00ff4c;
+    background: #081226;
+    color: #00ff4c;
+    cursor: pointer;
+}
+
+}
+
 
 </style>
 </head>
 <body>
 
-<div id="chronometer">
-    <button id="startChrono" style="background:none; border:none; color:#00ff4c; cursor:pointer; font-size:1.1rem;">Démarrer</button>
+<div id="chronoPanel">
+    <span id="chronoDisplay">00:00:00</span>
+    <button id="startBtn">▶ Démarrer</button>
+    <button id="stopBtn">⏸ Arrêter</button>
+    <button id="resetBtn">⏹ Réinitialiser</button>
 </div>
+
 
 <div class="wrap">
     <h1>Portail du Test Pratique — Stage Académique L3 WONDER TECK 2025</h1>
@@ -257,28 +290,62 @@ gpg --output si.pdf --decrypt si.pdf.gpg</pre></li>
 
 
 <script>
-// Chronomètre persistant avec bouton
-let chronoStarted = localStorage.getItem('chronoStarted') === 'true';
-let chronoStartTime = parseInt(localStorage.getItem('chronoStartTime')) || 0;
-const chronoDisplay = document.getElementById('chronometer');
+let chronoStarted = false;
+let chronoStartTime = 0;
+let chronoElapsed = parseInt(localStorage.getItem('chronoElapsed')) || 0;
+
+const chronoDisplay = document.getElementById('chronoDisplay');
+const startBtn = document.getElementById('startBtn');
+const stopBtn = document.getElementById('stopBtn');
+const resetBtn = document.getElementById('resetBtn');
 
 function updateChrono() {
-    if(!chronoStarted) return;
-    let elapsed = Date.now() - chronoStartTime;
-    let hrs = Math.floor(elapsed/3600000);
-    let mins = Math.floor((elapsed%3600000)/60000);
-    let secs = Math.floor((elapsed%60000)/1000);
-    chronoDisplay.textContent = `Temps écoulé : ${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    if(chronoStarted){
+        let now = Date.now();
+        let total = chronoElapsed + (now - chronoStartTime);
+        let hrs = Math.floor(total/3600000);
+        let mins = Math.floor((total%3600000)/60000);
+        let secs = Math.floor((total%60000)/1000);
+        chronoDisplay.textContent = `${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    } else {
+        // affiche temps actuel même si arrêté
+        let total = chronoElapsed;
+        let hrs = Math.floor(total/3600000);
+        let mins = Math.floor((total%3600000)/60000);
+        let secs = Math.floor((total%60000)/1000);
+        chronoDisplay.textContent = `${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    }
 }
+
 setInterval(updateChrono, 1000);
 
-document.getElementById('startChrono').onclick = function() {
-    chronoStarted = true;
-    chronoStartTime = Date.now();
-    localStorage.setItem('chronoStarted','true');
-    localStorage.setItem('chronoStartTime', chronoStartTime);
-    this.style.display='none';
-}
+// Boutons
+startBtn.onclick = () => {
+    if(!chronoStarted){
+        chronoStarted = true;
+        chronoStartTime = Date.now();
+        localStorage.setItem('chronoStartTime', chronoStartTime);
+        localStorage.setItem('chronoStarted','true');
+    }
+};
+
+stopBtn.onclick = () => {
+    if(chronoStarted){
+        chronoElapsed += Date.now() - chronoStartTime;
+        chronoStarted = false;
+        localStorage.setItem('chronoElapsed', chronoElapsed);
+        localStorage.setItem('chronoStarted','false');
+    }
+};
+
+resetBtn.onclick = () => {
+    chronoStarted = false;
+    chronoElapsed = 0;
+    chronoStartTime = 0;
+    localStorage.setItem('chronoElapsed', chronoElapsed);
+    localStorage.setItem('chronoStarted','false');
+};
+
 
 // Download
 document.getElementById('downloadBtn').onclick = function() {
