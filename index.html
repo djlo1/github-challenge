@@ -1,161 +1,334 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portail du Test Pratique — Programme de Stage Academique L3 WONDER TECK 2025</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portail du Test Pratique — Stage Académique L3 WONDER TECK 2025</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
     body {
-      font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
-      margin: 0;
-      background: radial-gradient(circle at top, #0f1724, #020612);
-      color: #e6eef8;
-      line-height: 1.6;
+        margin: 0;
+        font-family: 'JetBrains Mono', monospace;
+        background: radial-gradient(circle at top, #0f1724, #020612);
+        color: #e6eef8;
     }
+
     .wrap {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 28px;
-      background: rgba(7, 16, 40, 0.9);
-      border-radius: 16px;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 180, 255, 0.15);
-      backdrop-filter: blur(8px);
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 28px;
+        background: rgba(7, 16, 40, 0.9);
+        border-radius: 16px;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 180, 255, 0.15);
+        backdrop-filter: blur(8px);
+        position: relative;
     }
+
     h1 {
-      margin-top: 0;
-      text-align: center;
-      color: #00cfff;
-      font-size: 1.9rem;
-      text-shadow: 0 0 8px #008cff;
-      letter-spacing: 1px;
+        margin-top: 0;
+        text-align: center;
+        color: #00cfff;
+        font-size: 1.9rem;
+        text-shadow: 0 0 8px #008cff;
+        letter-spacing: 1px;
     }
-    h3, h4 { color: #e6eef8; margin-bottom: 8px; }
+
+    h3 { color: #e6eef8; margin-bottom: 8px; }
     .card {
-      background: #0a1830;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 18px;
-      box-shadow: 0 0 15px rgba(0,180,255,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: #0a1830;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 18px;
+        box-shadow: 0 0 15px rgba(0,180,255,0.15);
     }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(0,180,255,0.3);
+
+    .hint, .small { font-size: 0.95rem; color: #9fb7d9; }
+    .small { display:inline-block; padding:6px; border-radius:6px; background: #081226; }
+
+    .important { background: linear-gradient(135deg, #0f325e, #132a46); padding: 12px; border-radius: 10px; border: 1px solid rgba(0,180,255,0.4); margin-top: 14px; }
+
+    .glow { color: #00cfff; font-weight: bold; text-shadow: 0 0 5px #00cfff, 0 0 10px #00a2d4; }
+
+    footer { margin-top: 20px; font-size: 0.85rem; color: #7fa0d1; text-align: center; }
+
+    #challengeImage { max-width:100%; border-radius:12px; margin-bottom:18px; display:block; }
+
+    #chronometer {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-weight: bold;
+        color: #00ff4c;
+        font-size: 1.1rem;
+        font-family: monospace;
     }
-    .hint { font-size: 0.95rem; color: #9fb7d9; }
-    .small { font-size: 0.9rem; color: #c9e0ff; background: #081226; padding: 8px; border-radius: 8px; display: inline-block; }
-    .important {
-      background: linear-gradient(135deg, #0f325e, #132a46);
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 14px;
-      border: 1px solid rgba(0,180,255,0.4);
+
+    #downloadBtn {
+        padding:6px 12px; margin-left:6px; border-radius:6px; border:1px solid #00ff4c;
+        background:#0a1830; color:#00ff4c; cursor:pointer;
     }
-    footer {
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: #7fa0d1;
-      text-align: center;
-    }
-    .muted { color: #6f8bb0; font-size: 0.9rem; }
-    .glow {
-      color: #00cfff;
-      font-weight: bold;
-      text-shadow: 0 0 5px #00cfff, 0 0 10px #00a2d4;
-    }
-    .tools-list { margin-top: 6px; }
-    .tools-list li { margin-bottom: 4px; }
-    img.challenge-image {
-      max-width: 100%;
-      border-radius: 12px;
-      margin: 20px 0;
-      display: block;
-      box-shadow: 0 0 25px rgba(0,180,255,0.3);
-      transition: transform 0.2s ease;
-    }
-    img.challenge-image:hover { transform: scale(1.02); }
-    /* 🎯 Indices camouflés */
-    .secret::after { content: "challenge/locked/ai.pdf.gpg"; font-size: 0; color: transparent; }
-    .secret2::after { content: "challenge/locked_si/si.pdf.gpg"; font-size: 0; color: transparent; }
-  </style>
+
+    /* Bouton d'ouverture */
+#openMenuBtn {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 6px 12px;
+    border-radius: 6px 0 0 6px;
+    border: none;
+    background: #0a1830;
+    color: #00ff4c;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Menu latéral */
+#sideMenu {
+    position: fixed;
+    top: 80px;
+    right: -360px; /* caché par défaut */
+    width: 350px;
+    height: 80%;
+    background: #0a1830cc;
+    border-left: 2px solid #00ff4c;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -4px 0 20px rgba(0,180,255,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+/* Header du menu */
+#menuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, #081226, #0f1724);
+    border-bottom: 1px solid #00ff4c;
+    font-weight: bold;
+    color: #00ff4c;
+}
+
+/* Bouton fermeture */
+#menuHeader button {
+    background: none;
+    border: none;
+    color: #00ff4c;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Contenu du menu */
+.menuContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Terminal log */
+.terminal {
+    flex: 1;
+    background: #081226;
+    color: #00ff4c;
+    font-family: monospace;
+    font-size: 0.85rem;
+    padding: 8px;
+    border-radius: 6px;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Curseur clignotant */
+.terminal::after {
+    content: '█';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%,50%,100%{opacity:1}
+    25%,75%{opacity:0}
+}
+
+
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Portail du Test Pratique — Programme de Stage Academique L3 WONDER TECK 2025</h1>
+
+<div id="chronometer">
+    <button id="startChrono" style="background:none; border:none; color:#00ff4c; cursor:pointer; font-size:1.1rem;">Démarrer</button>
+</div>
+
+<div class="wrap">
+    <h1>Portail du Test Pratique — Stage Académique L3 WONDER TECK 2025</h1>
+
 
     <div class="card">
-      <h3>Présentation</h3>
-      <p class="hint">
-        Bienvenue sur la plateforme sécurisée du test pratique.<br>
-        Vous êtes deux candidates sélectionnées pour ce challenge :
-      </p>
-      <ul class="hint">
-        <li><span class="glow">Océane Kafui BALLEY</span> — Spécialité <strong>Intelligence Artificielle & Data Science</strong> (<code>ai.pdf</code>)</li>
-        <li><span class="glow">Melkiade Hounsou</span> — Spécialité <strong>Cybersécurité</strong> (<code>si.pdf</code>)</li>
-      </ul>
-      <div class="important">
-        <p class="small">
-          Les fichiers attribués sont <em>chiffrés</em>. Avant de commencer, vous devez collaborer pour les récupérer et les déchiffrer.
+        <h3>Présentation</h3>
+        <p class="hint">
+            Bienvenue sur la plateforme sécurisée du test pratique.<br>
+            Vous participez au programme <strong>Stage Académique L3 WONDER TECK 2025</strong>.<br>
+            <strong>L'objectif :</strong> récupérer et déchiffrer les fichiers attribués à chaque spécialité, puis exécuter votre test individuel.
         </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Image d'indice</h3>
-      <p class="hint">Analysez attentivement cette image, elle contient un indice invisible pour le second fichier :</p>
-      <img src="images/cyber_challenge.png" alt="Indice pour si.pdf" class="challenge-image">
-    </div>
-
-    <div class="card">
-      <h3>Étapes détaillées du test</h3>
-      <ol class="hint">
-        <li>Inspectez cette page et son code source (HTML, CSS). Cherchez les indices cachés dans les classes et commentaires.</li>
-        <li>Trouvez le premier fichier chiffré (<code>ai.pdf.gpg</code>) grâce à l’indice dans la page.</li>
-        <li>Pour le second fichier (<code>si.pdf.gpg</code>), explorez l’image ci-dessus et examinez ses métadonnées. L’indice est dissimulé.</li>
-        <li>Téléchargez les fichiers trouvés et déchiffrez-les avec <code>gpg</code> ou une alternative :</li>
-        <ul class="tools-list">
-          <li>GPG (ligne de commande)</li>
-          <li>Kleopatra (Windows)</li>
-          <li>GPG Suite (Mac)</li>
-          <li>OpenPGP.js (Web)</li>
+        <ul class="hint">
+            <li><span class="glow">Océane Kafui BALLEY</span> — Spécialité <strong>Intelligence Artificielle & Data Science</strong> (<code>ai.pdf</code>)</li>
+            <li><span class="glow">Melkiade Hounsou</span> — Spécialité <strong>Cybersécurité</strong> (<code>si.pdf</code>)</li>
         </ul>
-        <li>Chaque candidate ouvre son PDF et exécute les tâches propres à sa spécialité.</li>
-      </ol>
+        <p class="important small">
+            Les fichiers sont <em>chiffrés</em>. Vous devez d'abord trouver les indices dans le code source et l'image pour connaître le chemin exact des fichiers.
+        </p>
     </div>
 
     <div class="card">
-      <h3>Outils et méthodes suggérés</h3>
-      <p class="hint">
-        Pour la récupération et l’analyse des fichiers, vous pouvez utiliser :
-      </p>
-      <ul class="tools-list">
-        <li>Inspecteur de code HTML/CSS de votre navigateur (DevTools)</li>
-        <li>Éditeur de texte (VSCode, Sublime Text)</li>
-        <li>Pour les métadonnées images : <code>exiftool</code>, ImageMagick, GIMP</li>
-        <li>Pour la stéganographie : steghide, zsteg, OpenStego, OutGuess</li>
-        <li>Pour le déchiffrement : gpg, Kleopatra, GPG Suite, OpenPGP.js</li>
-      </ul>
-      <p class="hint small">
-        Vous êtes encouragées à explorer, analyser et utiliser des outils légitimes pour compléter la mission.
-      </p>
+        <h3>Outils recommandés</h3>
+        <ul class="hint">
+            <li>Analyse de l'image (stéganographie) : <code>exiftool</code>, <code>Steghide</code>, <code>zsteg</code>, ou tout autre outil équivalent.</li>
+            <li>Déchiffrement des fichiers : <code>gpg</code>, <code>Kleopatra</code> ou <code>GnuPG</code>.</li>
+            <li>Édition ou lecture du code source de la page : n'importe quel éditeur de texte ou navigateur avec inspection élément.</li>
+        </ul>
+        
+    </div>
+    <!-- Option 1 : utiliser le fichier existant -->
+<img id="challengeImage" src="images/cyber_challenge.png" alt="Image du challenge">
+
+
+    <div class="card">
+        <h3>Étapes du test</h3>
+        <ol class="hint">
+            <li>Explorez attentivement la page et son code source pour découvrir le premier fichier chiffré (<code>ai.pdf.gpg</code>).</li>
+            <li>Pour le second fichier (<code>si.pdf.gpg</code>), analysez l’image fournie : ses métadonnées contiennent un indice.</li>
+            <li>Après avoir découvert le chemin exact de chaque fichier, saisissez-le dans le formulaire ci-dessous pour activer le téléchargement.</li>
+            <li>Téléchargez vos fichiers et utilisez <code>gpg</code> pour les déchiffrer :
+<pre class="small">gpg --output ai.pdf --decrypt ai.pdf.gpg
+gpg --output si.pdf --decrypt si.pdf.gpg</pre></li>
+            <li>Chaque candidate ouvre son PDF et exécute les tâches de sa spécialité.</li>
+        </ol>
     </div>
 
     <div class="card">
-      <h3>Règles</h3>
-      <p class="muted">
-        - Collaboration autorisée uniquement pour récupérer les fichiers.<br>
-        - Travail individuel obligatoire pour l’exécution des tâches.<br>
-        - Toute triche ou contournement entraîne l’élimination.
-      </p>
+        <h3>Accès aux fichiers chiffrés</h3>
+        <p class="hint">Entrez le chemin exact découvert pour activer le téléchargement :</p>
+        <input type="text" id="filePath" placeholder="Ex: wonderteck/locked/monfichier.pdf.gpg" style="width:80%; padding:6px; border-radius:6px; border:1px solid #00ff4c; background:#081226; color:#00ff4c;">
+        <button id="downloadBtn">Télécharger</button>
+    </div>
+
+    <div class="card">
+        <h3>Règles</h3>
+        <p class="hint">
+            - Coopération uniquement pour la phase de récupération/déchiffrement.<br>
+            - Travail individuel obligatoire après accès aux fichiers.<br>
+            - Toute triche entraîne l’élimination.
+        </p>
+         <!-- INDICE CACHE: Le premier fichier chiffré est disponible en relatif sous:
+       /challenge/locked_ai/ai.pdf.gpg -->
     </div>
 
     <footer>
-      Plateforme générée pour le test — Wonder Teck © 2025
+        Wonder Teck © 2025 — Stage Académique L3 | Tous droits réservés<br>
+        Plateforme sécurisée pour tests pratiques
     </footer>
-  </div>
+</div>
 
-  <!-- Indices camouflés -->
-  <div class="secret"></div>
-  <div class="secret2"></div>
+<!-- Menu latéral droit -->
+<div id="sideMenu">
+    <div id="menuHeader">
+        <span>Terminal</span>
+        <button id="toggleMenu">✖</button>
+    </div>
+    <div class="menuContent">
+        <div class="terminal" id="networkLog">Connexion réseau : en attente...</div>
+        <div class="terminal" id="performanceLog">Performance système : en attente...</div>
+    </div>
+</div>
+
+<!-- Bouton pour ouvrir le menu -->
+<button id="openMenuBtn">▶ Terminal</button>
+
+</div>
+
+
+<script>
+// Chronomètre persistant avec bouton
+let chronoStarted = localStorage.getItem('chronoStarted') === 'true';
+let chronoStartTime = parseInt(localStorage.getItem('chronoStartTime')) || 0;
+const chronoDisplay = document.getElementById('chronometer');
+
+function updateChrono() {
+    if(!chronoStarted) return;
+    let elapsed = Date.now() - chronoStartTime;
+    let hrs = Math.floor(elapsed/3600000);
+    let mins = Math.floor((elapsed%3600000)/60000);
+    let secs = Math.floor((elapsed%60000)/1000);
+    chronoDisplay.textContent = `Temps écoulé : ${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+}
+setInterval(updateChrono, 1000);
+
+document.getElementById('startChrono').onclick = function() {
+    chronoStarted = true;
+    chronoStartTime = Date.now();
+    localStorage.setItem('chronoStarted','true');
+    localStorage.setItem('chronoStartTime', chronoStartTime);
+    this.style.display='none';
+}
+
+// Download
+document.getElementById('downloadBtn').onclick = function() {
+    let path = document.getElementById('filePath').value.trim();
+    if(path === 'challenge/locked_ai/ai.pdf.gpg' || path === 'challenge/locked_si/si.pdf.gpg'){
+        window.location.href = path;
+    } else {
+        alert('Chemin incorrect. Veuillez trouver le chemin exact dans les indices.');
+    }
+};
+
+const sideMenu = document.getElementById('sideMenu');
+const openMenuBtn = document.getElementById('openMenuBtn');
+const toggleMenu = document.getElementById('toggleMenu');
+const networkLog = document.getElementById('networkLog');
+const performanceLog = document.getElementById('performanceLog');
+
+// Scroll automatique
+function appendLog(el, text){
+    el.textContent += "\n" + text;
+    el.scrollTop = el.scrollHeight;
+}
+
+// Ouvrir / fermer le menu
+openMenuBtn.onclick = () => { sideMenu.style.right = '0'; openMenuBtn.style.display = 'none'; }
+toggleMenu.onclick = () => { sideMenu.style.right = '-360px'; openMenuBtn.style.display = 'block'; }
+
+// Consentement pour logs
+function askConsent() {
+    if(confirm("Le test WONDER TECK souhaite analyser la performance réseau et CPU de votre machine. Acceptez-vous ?")){
+        startRealLogs();
+    } else {
+        startSimulatedLogs();
+    }
+}
+
+// Logs simulés
+function startSimulatedLogs(){
+    setInterval(()=> appendLog(networkLog, `Connexion réseau : ${Math.floor(Math.random()*1000)} ms`), 2000);
+    setInterval(()=> appendLog(performanceLog, `CPU : ${Math.floor(Math.random()*50)}% - Réponse : ${Math.floor(Math.random()*200)} ms`), 2500);
+}
+
+// Logs "réels" simulés
+function startRealLogs(){
+    setInterval(()=> appendLog(networkLog, `Connexion réseau : ${Math.floor(Math.random()*150)} ms`), 2000);
+    setInterval(()=> appendLog(performanceLog, `CPU : ${Math.floor(Math.random()*30)}% - Réponse : ${Math.floor(Math.random()*50)} ms`), 2500);
+}
+
+askConsent();
+
+</script>
+
 </body>
 </html>
