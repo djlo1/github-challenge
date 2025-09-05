@@ -63,13 +63,20 @@
       font-weight: bold;
       text-shadow: 0 0 5px #00cfff, 0 0 10px #00a2d4;
     }
-    /* 🎯 Indice camouflé */
-    .secret::after {
-      content: "challenge/locked/ai.pdf.gpg";
-      font-size: 0;
-      color: transparent;
-      background: none;
+    .tools-list { margin-top: 6px; }
+    .tools-list li { margin-bottom: 4px; }
+    img.challenge-image {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+      display: block;
+      box-shadow: 0 0 25px rgba(0,180,255,0.3);
+      transition: transform 0.2s ease;
     }
+    img.challenge-image:hover { transform: scale(1.02); }
+    /* 🎯 Indices camouflés */
+    .secret::after { content: "challenge/locked/ai.pdf.gpg"; font-size: 0; color: transparent; }
+    .secret2::after { content: "challenge/locked_si/si.pdf.gpg"; font-size: 0; color: transparent; }
   </style>
 </head>
 <body>
@@ -79,41 +86,66 @@
     <div class="card">
       <h3>Présentation</h3>
       <p class="hint">
-        Bienvenue sur la plateforme sécurisée du test pratique. <br>
+        Bienvenue sur la plateforme sécurisée du test pratique.<br>
         Vous êtes deux candidates sélectionnées pour ce challenge :
       </p>
       <ul class="hint">
         <li><span class="glow">Océane Kafui BALLEY</span> — Spécialité <strong>Intelligence Artificielle & Data Science</strong> (<code>ai.pdf</code>)</li>
         <li><span class="glow">Melkiade Hounsou</span> — Spécialité <strong>Cybersécurité</strong> (<code>si.pdf</code>)</li>
       </ul>
-
       <div class="important">
         <p class="small">
-          Les fichiers attribués sont <em>chiffrés</em>. Avant de commencer votre mission personnelle, vous devez collaborer pour les récupérer et les déchiffrer.
+          Les fichiers attribués sont <em>chiffrés</em>. Avant de commencer, vous devez collaborer pour les récupérer et les déchiffrer.
         </p>
       </div>
     </div>
 
     <div class="card">
-      <h3>Étapes du test</h3>
+      <h3>Image d'indice</h3>
+      <p class="hint">Analysez attentivement cette image, elle contient un indice invisible pour le second fichier :</p>
+      <img src="images/cyber_challenge.png" alt="Indice pour si.pdf" class="challenge-image">
+    </div>
+
+    <div class="card">
+      <h3>Étapes détaillées du test</h3>
       <ol class="hint">
-        <li>Explorez cette page et son code source attentivement.</li>
-        <li>Trouvez le premier fichier chiffré (<code>ai.pdf.gpg</code>) à l’aide d’un indice discret.</li>
-        <li>Pour le second fichier (<code>si.pdf.gpg</code>), analysez l’image fournie dans la page : ses métadonnées cachent une piste.</li>
-        <li>Une fois vos fichiers téléchargés, utilisez <code>gpg</code> pour les déchiffrer :
-          <pre class="small">gpg --output ai.pdf --decrypt ai.pdf.gpg
-gpg --output si.pdf --decrypt si.pdf.gpg</pre>
-        </li>
-        <li>Chaque candidate ouvre son PDF et exécute les tâches de sa spécialité.</li>
+        <li>Inspectez cette page et son code source (HTML, CSS). Cherchez les indices cachés dans les classes et commentaires.</li>
+        <li>Trouvez le premier fichier chiffré (<code>ai.pdf.gpg</code>) grâce à l’indice dans la page.</li>
+        <li>Pour le second fichier (<code>si.pdf.gpg</code>), explorez l’image ci-dessus et examinez ses métadonnées. L’indice est dissimulé.</li>
+        <li>Téléchargez les fichiers trouvés et déchiffrez-les avec <code>gpg</code> ou une alternative :</li>
+        <ul class="tools-list">
+          <li>GPG (ligne de commande)</li>
+          <li>Kleopatra (Windows)</li>
+          <li>GPG Suite (Mac)</li>
+          <li>OpenPGP.js (Web)</li>
+        </ul>
+        <li>Chaque candidate ouvre son PDF et exécute les tâches propres à sa spécialité.</li>
       </ol>
+    </div>
+
+    <div class="card">
+      <h3>Outils et méthodes suggérés</h3>
+      <p class="hint">
+        Pour la récupération et l’analyse des fichiers, vous pouvez utiliser :
+      </p>
+      <ul class="tools-list">
+        <li>Inspecteur de code HTML/CSS de votre navigateur (DevTools)</li>
+        <li>Éditeur de texte (VSCode, Sublime Text)</li>
+        <li>Pour les métadonnées images : <code>exiftool</code>, ImageMagick, GIMP</li>
+        <li>Pour la stéganographie : steghide, zsteg, OpenStego, OutGuess</li>
+        <li>Pour le déchiffrement : gpg, Kleopatra, GPG Suite, OpenPGP.js</li>
+      </ul>
+      <p class="hint small">
+        Vous êtes encouragées à explorer, analyser et utiliser des outils légitimes pour compléter la mission.
+      </p>
     </div>
 
     <div class="card">
       <h3>Règles</h3>
       <p class="muted">
-        - Vous coopérez uniquement pour la phase de récupération/déchiffrement.<br>
-        - Une fois vos fichiers accessibles, <strong>travail individuel obligatoire</strong>.<br>
-        - Toute triche ou contournement non autorisé entraîne l’élimination.
+        - Collaboration autorisée uniquement pour récupérer les fichiers.<br>
+        - Travail individuel obligatoire pour l’exécution des tâches.<br>
+        - Toute triche ou contournement entraîne l’élimination.
       </p>
     </div>
 
@@ -122,7 +154,8 @@ gpg --output si.pdf --decrypt si.pdf.gpg</pre>
     </footer>
   </div>
 
-  <!-- La classe "secret" ci-dessous contient discrètement un indice -->
+  <!-- Indices camouflés -->
   <div class="secret"></div>
+  <div class="secret2"></div>
 </body>
 </html>
