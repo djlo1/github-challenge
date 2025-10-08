@@ -1,206 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Challenge - Test Pratique</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tests de Recrutement – WONDER TECK</title>
   <style>
     body {
-      font-family: Inter, system-ui, Segoe UI, Arial;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0b0c10;
+      color: #e6e6e6;
       margin: 0;
-      background: #0f1724;
-      color: #e6eef8;
+      padding: 0;
     }
-    .wrap {
-      max-width: 980px;
+    header {
+      background-color: #1f2833;
+      text-align: center;
+      padding: 25px 10px;
+    }
+    h1 {
+      margin: 0;
+      color: #66fcf1;
+    }
+    section {
+      max-width: 900px;
       margin: 40px auto;
-      padding: 28px;
-      background: #071028;
-      border-radius: 12px;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-    }
-    h1, h2, h3 {
-      color: #fff;
-      margin-top: 0;
+      background: #1f2833;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0b0c10;
     }
     h2 {
-      margin-top: 30px;
-      border-left: 4px solid #1b4db3;
-      padding-left: 10px;
+      color: #45a29e;
+      border-bottom: 1px solid #45a29e;
+      padding-bottom: 5px;
     }
-    .card {
-      background: #081226;
-      padding: 18px;
-      border-radius: 10px;
-      margin-top: 14px;
-    }
-    ol, ul {
+    ol {
       padding-left: 20px;
     }
     li {
-      margin-bottom: 8px;
-    }
-    .hint {
-      font-size: 0.95rem;
-      color: #9fb7d9;
-    }
-    .small {
-      font-size: 0.9rem;
-      color: #c9e0ff;
-    }
-    .important {
-      background: #1b3a66;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 12px;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
     footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #7fa0d1;
       text-align: center;
-    }
-    .muted {
-      color: #6f8bb0;
-      font-size: 0.9rem;
+      padding: 20px;
+      color: #aaa;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Challenge Technique — Programme de Recrutement</h1>
 
-    <div class="card">
-      <h3>Objectif du test</h3>
-      <p class="hint">
-        Ce test vise à évaluer vos compétences pratiques en <strong>Design UI/UX</strong> et en <strong>Développement Fullstack Web & Mobile</strong>.
-        Chaque candidat doit concevoir ou développer les projets proposés ci-dessous selon son profil.
-      </p>
+  <header>
+    <h1>Tests de Recrutement – WONDER TECK</h1>
+    <p>Mini-projets de test pour les candidats UI/UX et Fullstack Web & Mobile</p>
+  </header>
 
-      <div class="important">
-        <strong>Règle importante :</strong>
-        <p class="small">
-          Vous devez choisir et réaliser les projets correspondant à votre poste (UI/UX Designer ou Développeur Fullstack).
-          Chaque rendu doit être soigné, documenté et livré avec le lien du dépôt (GitHub, GitLab ou Figma).
-        </p>
-      </div>
-    </div>
+  <section>
+    <h2>🧩 Tests UI/UX Designers</h2>
+    <ol>
+      <li>Refonte de la page d’accueil d’une startup technologique</li>
+      <li>Création d’un tableau de bord admin (Dashboard)</li>
+      <li>Prototype d’une app de livraison locale</li>
+      <li>Interface d’un site e-commerce minimaliste</li>
+      <li>Refonte d’une page de connexion et d’inscription moderne</li>
+      <li>Création d’un design system (couleurs, boutons, typographies)</li>
+      <li>Application de gestion de tâches avec interface Kanban</li>
+      <li>Interface mobile d’une app de réservation (restaurant, taxi...)</li>
+      <li>Design d’un mini réseau social (feed + profil)</li>
+      <li>Application mobile de gestion de dépenses personnelles</li>
+      <li>Refonte d’un site d’agence immobilière</li>
+      <li>Page “À propos” avec storytelling visuel</li>
+      <li>Interface pour un système de gestion de stock</li>
+      <li>Page d’inscription à un événement avec formulaire UX-friendly</li>
+      <li>Design d’un site pour une école ou université</li>
+      <li>Prototype d’une app de suivi sportif</li>
+      <li>Refonte d’une interface de messagerie</li>
+      <li>Interface web d’un tableau de bord de ventes</li>
+      <li>Mini application de gestion de notes (étudiants)</li>
+      <li>Application mobile de gestion de carburant (style FuelX)</li>
+    </ol>
+  </section>
 
-    <h2>💡 Pour les Designers UI/UX</h2>
-    <div class="card">
-      <h3>1. Interface & Navigation</h3>
-      <ul class="hint">
-        <li>Page d’accueil d’une application mobile de covoiturage.</li>
-        <li>Dashboard d’un administrateur (ex. gestion d’utilisateurs ou ventes).</li>
-        <li>Menu latéral interactif (Sidebar) pour une appli SaaS.</li>
-        <li>Page de connexion et d’inscription (Login/Signup) avec feedback d’erreur.</li>
-        <li>Interface de messagerie (type WhatsApp / Slack).</li>
-      </ul>
+  <section>
+    <h2>💻 Tests Développeurs Fullstack Web & Mobile</h2>
+    <ol>
+      <li>Application de gestion de tâches (web + mobile, Node.js backend)</li>
+      <li>Mini plateforme e-commerce partagée (Next.js + Flutter)</li>
+      <li>Application de réservation (admin web, app client mobile)</li>
+      <li>Application de gestion immobilière (web propriétaires, app locataires)</li>
+      <li>Application de suivi de dépenses (graphiques + saisie mobile)</li>
+      <li>Application de gestion d’événements (QR code + backend Node)</li>
+      <li>Application de gestion de carburant (style FuelX)</li>
+      <li>Mini réseau social (mur, likes, WebSocket temps réel)</li>
+      <li>Application E-learning (upload cours web, suivi mobile)</li>
+      <li>Application de gestion de stock (scan mobile + interface admin web)</li>
+    </ol>
+  </section>
 
-      <h3>2. Produits & Services</h3>
-      <ul class="hint">
-        <li>Fiche produit e-commerce.</li>
-        <li>Application de commande de nourriture (menu, panier, suivi).</li>
-        <li>Application de gestion de carburant (inspirée de FuelX).</li>
-        <li>Comparateur de prix (bus/avion) avec filtres et tri.</li>
-        <li>Application bancaire mobile (solde et historique des transactions).</li>
-      </ul>
+  <footer>
+    © 2025 WONDER TECK – Tous droits réservés
+  </footer>
 
-      <h3>3. Social & Communautaire</h3>
-      <ul class="hint">
-        <li>Profil utilisateur (photo, bio, activités récentes).</li>
-        <li>Application de dons communautaires (causes, donateurs, bouton “Faire un don”).</li>
-        <li>Application d’événements locaux (liste, carte, bouton “Participer”).</li>
-      </ul>
-
-      <h3>4. Éducation & Information</h3>
-      <ul class="hint">
-        <li>Plateforme d’apprentissage en ligne (cours, vidéo, progression).</li>
-        <li>Application de gestion d’étudiants (portail universitaire).</li>
-        <li>Page d’article de blog moderne et lisible.</li>
-      </ul>
-
-      <h3>5. Expérience & Innovation</h3>
-      <ul class="hint">
-        <li>UI d’un assistant virtuel (Chatbot minimaliste).</li>
-        <li>Application de santé connectée (suivi du sommeil, pas, etc.).</li>
-        <li>UI pour montre connectée (smartwatch).</li>
-        <li>Refonte d’une interface existante à moderniser.</li>
-      </ul>
-    </div>
-
-    <h2>🧩 Pour les Développeurs Fullstack Web & Mobile</h2>
-    <div class="card">
-      <p class="small">Chaque projet comprend un front web (Next.js ou Angular), un front mobile (Flutter) et un backend (Node.js).</p>
-
-      <ol class="hint">
-        <li>
-          <strong>Application de gestion de tâches</strong><br>
-          Web : Kanban pour organiser les tâches.<br>
-          Mobile : affichage simplifié + notifications.<br>
-          Backend : Node.js + MongoDB.
-        </li>
-        <li>
-          <strong>Application de gestion de carburant</strong><br>
-          Web : dashboard stations.<br>
-          Mobile : interface agent pour saisie des volumes.<br>
-          Backend : Node.js + JWT.
-        </li>
-        <li>
-          <strong>Mini plateforme e-commerce</strong><br>
-          Web : boutique + panier + commandes.<br>
-          Mobile : app client.<br>
-          Backend : Node.js + PostgreSQL.
-        </li>
-        <li>
-          <strong>Application de réservation</strong><br>
-          Web : interface admin.<br>
-          Mobile : app client (réservation).<br>
-          Backend : Node.js + MongoDB.
-        </li>
-        <li>
-          <strong>Application de gestion immobilière</strong><br>
-          Web : gestion des logements.<br>
-          Mobile : app locataire.<br>
-          Backend : Node.js REST API.
-        </li>
-        <li>
-          <strong>Application de gestion de stock</strong><br>
-          Web : gestion produits.<br>
-          Mobile : scan et mise à jour stock.<br>
-          Backend : Node.js + MongoDB.
-        </li>
-        <li>
-          <strong>Application de gestion d’événements</strong><br>
-          Web : création & gestion.<br>
-          Mobile : inscription & QR code.<br>
-          Backend : Node.js sécurisé.
-        </li>
-        <li>
-          <strong>Mini réseau social</strong><br>
-          Web : fil d’actualités.<br>
-          Mobile : likes & commentaires.<br>
-          Backend : Node.js + WebSocket.
-        </li>
-        <li>
-          <strong>Application de gestion d’apprentissage</strong><br>
-          Web : upload cours + suivi.<br>
-          Mobile : lecture vidéo.<br>
-          Backend : Node.js + PostgreSQL.
-        </li>
-        <li>
-          <strong>Application de suivi de dépenses</strong><br>
-          Web : statistiques & graphiques.<br>
-          Mobile : saisie rapide.<br>
-          Backend : Node.js + MongoDB.
-        </li>
-      </ol>
-    </div>
-
-    <footer>
-      Page d’énoncé officielle — Challenge Technique © WONDER TECK.  
-      <br>Contact : dalohou@wonderteck.com | +229 62 14 66 15
-    </footer>
-  </div>
 </body>
 </html>
