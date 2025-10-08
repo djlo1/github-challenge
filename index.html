@@ -18,44 +18,136 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Portail du Test Pratique — Programme de Stage</h1>
+    <h1>Portail du Test Pratique — Programme de recrutement</h1>
 
     <div class="card">
       <h3>Règles & objectifs</h3>
       <p class="hint">
-        Bienvenue. Ce test a deux phases :
+        Bienvenue. Ce test a individuel :
         <ol>
-          <li>Accès collaboratif aux documents chiffrés (phase commune)</li>
-          <li>Travail individuel sur vos épreuves (après décryptage)</li>
+          <li>Veuillez choisir un projet de votre choix en fonction de votre profils</li>
+          <li>Travail individuel sur vos épreuves </li>
         </ol>
       </p>
 
       <div class="important">
-        <strong>Important :</strong>
-        <p class="small">Les fichiers sont chiffrés avec GPG (AES-256). Vous devez d’abord <em>trouver</em> et <em>récupérer</em> les fichiers chiffrés, puis les déchiffrer localement pour commencer vos tâches.</p>
+        <strong>Règle importante :</strong>
+        <p class="small">
+          Vous devez choisir et réaliser les projets correspondant à votre poste (UI/UX Designer ou Développeur Fullstack).
+          Chaque rendu doit être soigné, documenté et livré avec le lien du dépôt (GitHub, GitLab ou Figma).
+        </p>
       </div>
-
-      <h4>Étapes à suivre</h4>
-      <ol class="hint">
-        <li>Lisez entièrement cette page.</li>
-        <li>Trouvez l’emplacement du premier fichier chiffré (indice : inspectez le code source de la page).</li>
-        <li>Téléchargez le fichier chiffré correspondant (ai.pdf.gpg).</li>
-        <li>Pour le second fichier, un indice est caché dans une image fournie sur ce site. Analysez ses métadonnées.</li>
-        <li>Une fois les mots de passe trouvés, déchiffrez localement :
-          <pre class="small">gpg --output ai.pdf --decrypt ai.pdf.gpg
-gpg --output si.pdf --decrypt si.pdf.gpg</pre>
-        </li>
-        <li>Ouvrez chaque PDF et commencez vos tâches.</li>
-      </ol>
-
-      <h4>Règles de fair-play</h4>
-      <p class="muted">Vous pouvez coopérer pour la phase d’accès mais chaque candidat travaille seul pour sa partie individuelle. Toute triche ou tentative de contournement non autorisée annule la participation.</p>
     </div>
 
+      <h2>💡 Pour les Designers UI/UX</h2>
     <div class="card">
-      <h3>Indices & Aides</h3>
-      <p class="hint">Indice principal : si vous ne voyez pas immédiatement les liens, pensez à <strong>Voir le code source</strong> (Ctrl+U) et cherchez les commentaires HTML. Un lien relatif vers le fichier chiffré y est glissé.</p>
-      <p class="small">Indice secondaire (image) : téléchargez l'image visible sur ce site et vérifiez ses métadonnées (EXIF).</p>
+      <h3>1. Interface & Navigation</h3>
+      <ul class="hint">
+        <li>Page d’accueil d’une application mobile de covoiturage.</li>
+        <li>Dashboard d’un administrateur (ex. gestion d’utilisateurs ou ventes).</li>
+        <li>Menu latéral interactif (Sidebar) pour une appli SaaS.</li>
+        <li>Page de connexion et d’inscription (Login/Signup) avec feedback d’erreur.</li>
+        <li>Interface de messagerie (type WhatsApp / Slack).</li>
+      </ul>
+
+      <h3>2. Produits & Services</h3>
+      <ul class="hint">
+        <li>Fiche produit e-commerce.</li>
+        <li>Application de commande de nourriture (menu, panier, suivi).</li>
+        <li>Application de gestion de carburant (inspirée de FuelX).</li>
+        <li>Comparateur de prix (bus/avion) avec filtres et tri.</li>
+        <li>Application bancaire mobile (solde et historique des transactions).</li>
+      </ul>
+
+      <h3>3. Social & Communautaire</h3>
+      <ul class="hint">
+        <li>Profil utilisateur (photo, bio, activités récentes).</li>
+        <li>Application de dons communautaires (causes, donateurs, bouton “Faire un don”).</li>
+        <li>Application d’événements locaux (liste, carte, bouton “Participer”).</li>
+      </ul>
+
+      <h3>4. Éducation & Information</h3>
+      <ul class="hint">
+        <li>Plateforme d’apprentissage en ligne (cours, vidéo, progression).</li>
+        <li>Application de gestion d’étudiants (portail universitaire).</li>
+        <li>Page d’article de blog moderne et lisible.</li>
+      </ul>
+
+      <h3>5. Expérience & Innovation</h3>
+      <ul class="hint">
+        <li>UI d’un assistant virtuel (Chatbot minimaliste).</li>
+        <li>Application de santé connectée (suivi du sommeil, pas, etc.).</li>
+        <li>UI pour montre connectée (smartwatch).</li>
+        <li>Refonte d’une interface existante à moderniser.</li>
+      </ul>
+    </div>
+
+    <h2>🧩 Pour les Développeurs Fullstack Web & Mobile</h2>
+    <div class="card">
+      <p class="small">Chaque projet comprend un front web (Next.js ou Angular), un front mobile (Flutter) et un backend (Node.js).</p>
+
+      <ol class="hint">
+        <li>
+          <strong>Application de gestion de tâches</strong><br>
+          Web : Kanban pour organiser les tâches.<br>
+          Mobile : affichage simplifié + notifications.<br>
+          Backend : Node.js + MongoDB.
+        </li>
+        <li>
+          <strong>Application de gestion de carburant</strong><br>
+          Web : dashboard stations.<br>
+          Mobile : interface agent pour saisie des volumes.<br>
+          Backend : Node.js + JWT.
+        </li>
+        <li>
+          <strong>Mini plateforme e-commerce</strong><br>
+          Web : boutique + panier + commandes.<br>
+          Mobile : app client.<br>
+          Backend : Node.js + PostgreSQL.
+        </li>
+        <li>
+          <strong>Application de réservation</strong><br>
+          Web : interface admin.<br>
+          Mobile : app client (réservation).<br>
+          Backend : Node.js + MongoDB.
+        </li>
+        <li>
+          <strong>Application de gestion immobilière</strong><br>
+          Web : gestion des logements.<br>
+          Mobile : app locataire.<br>
+          Backend : Node.js REST API.
+        </li>
+        <li>
+          <strong>Application de gestion de stock</strong><br>
+          Web : gestion produits.<br>
+          Mobile : scan et mise à jour stock.<br>
+          Backend : Node.js + MongoDB.
+        </li>
+        <li>
+          <strong>Application de gestion d’événements</strong><br>
+          Web : création & gestion.<br>
+          Mobile : inscription & QR code.<br>
+          Backend : Node.js sécurisé.
+        </li>
+        <li>
+          <strong>Mini réseau social</strong><br>
+          Web : fil d’actualités.<br>
+          Mobile : likes & commentaires.<br>
+          Backend : Node.js + WebSocket.
+        </li>
+        <li>
+          <strong>Application de gestion d’apprentissage</strong><br>
+          Web : upload cours + suivi.<br>
+          Mobile : lecture vidéo.<br>
+          Backend : Node.js + PostgreSQL.
+        </li>
+        <li>
+          <strong>Application de suivi de dépenses</strong><br>
+          Web : statistiques & graphiques.<br>
+          Mobile : saisie rapide.<br>
+          Backend : Node.js + MongoDB.
+        </li>
+      </ol>
     </div>
 
     <footer>
